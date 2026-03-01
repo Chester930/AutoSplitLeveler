@@ -1,0 +1,49 @@
+name: Build macOS VST3
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:  # 手動觸發按鈕
+
+jobs:
+  build-macos:
+    name: Build macOS Universal (Intel + Apple Silicon)
+    runs-on: macos-14  # Apple Silicon M1 runner
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Install CMake
+        run: brew install cmake
+
+      - name: Configure CMake (Universal Binary)
+        run: |
+          cmake -S . -B build_mac \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DCMAKE_OSX_ARCHITECTURES="arm64;x86_64" \
+            -DCMAKE_OSX_DEPLOYMENT_TARGET=11.0
+
+      - name: Build AutoSplitLeveler
+        run: |
+          cmake --build build_mac --config Release --target AutoSplitLeveler --parallel 4
+
+      - name: Find and package the .vst3 bundle
+        run: |
+          VST3_PATH=$(find build_mac -name "AutoSplitLeveler.vst3" -type d | head -1)
+          echo "Found: $VST3_PATH"
+          if [ -z "$VST3_PATH" ]; then
+            echo "ERROR: .vst3 not found!"
+            find build_mac -name "*.vst3"
+            exit 1
+          fi
+          zip -r AutoSplitLeveler_macOS.zip "$VST3_PATH"
+
+      - name: Upload macOS artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: AutoSplitLeveler_macOS
+          path: AutoSplitLeveler_macOS.zip
+          retention-days: 30

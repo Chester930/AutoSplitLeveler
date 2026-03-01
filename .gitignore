@@ -1,0 +1,42 @@
+# Build directories
+build/
+build_mac/
+out/
+
+# Visual Studio
+.vs/
+*.vcxproj.user
+*.suo
+*.sdf
+*.opensdf
+
+# VS Code
+.vscode/
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+
+# Xcode
+*.xcworkspace
+*.xcodeproj
+xcuserdata/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Compiled output (keep the source, not the binaries)
+*.obj
+*.o
+*.lib
+*.dll
+*.exp
+*.pdb
+
+# Exception: keep the Windows release in AutoSplitLeveler_Windows
+!AutoSplitLeveler_Windows/
+!AutoSplitLeveler_Windows/**

@@ -1,0 +1,310 @@
+Change Dir: 'C:/Users/666/Desktop/Cubase Puglin/build'
+
+Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/MSBuild/Current/Bin/MSBuild.exe" AutoSplitLeveler.vcxproj /p:Configuration=Release /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:n
+Microsoft (R) Build Engine for .NET Framework 16.11.6+a918ceb31 版
+Copyright (C) Microsoft Corporation. 著作權所有，並保留一切權利。
+
+已經開始建置於 2026/3/1 下午 05:49:53。
+節點 1 (預設目標) 上的專案 "C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj"。
+專案 "C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj" (1) 正在節點 1 (預設目標) 上建置 "C:\Users\666\Desktop\Cubase Puglin\build\ZERO_CHECK.vcxproj" (2)。
+InitializeBuildStatus:
+  由於指定了 "AlwaysCreate"，因此正在建立 "x64\Release\ZERO_CHECK\ZERO_CHECK.tlog\unsuccessfulbuild"。
+CustomBuild:
+  所有輸出都是最新的。
+FinalizeBuildStatus:
+  正在刪除檔案 "x64\Release\ZERO_CHECK\ZERO_CHECK.tlog\unsuccessfulbuild"。
+  正在變更時間戳記 "x64\Release\ZERO_CHECK\ZERO_CHECK.tlog\ZERO_CHECK.lastbuildstate"。
+專案 "C:\Users\666\Desktop\Cubase Puglin\build\ZERO_CHECK.vcxproj" (預設目標) 建置完成。
+專案 "C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj" (1) 正在節點 1 (預設目標) 上建置 "C:\Users\666\Desktop\Cubase Puglin\build\ARA_SDK\ARA_Library\ARA_API.build\ARA_API.vcxproj" (3)。
+InitializeBuildStatus:
+  由於指定了 "AlwaysCreate"，因此正在建立 "x64\Release\ARA_API\ARA_API.tlog\unsuccessfulbuild"。
+CustomBuild:
+  所有輸出都是最新的。
+FinalizeBuildStatus:
+  正在刪除檔案 "x64\Release\ARA_API\ARA_API.tlog\unsuccessfulbuild"。
+  正在變更時間戳記 "x64\Release\ARA_API\ARA_API.tlog\ARA_API.lastbuildstate"。
+專案 "C:\Users\666\Desktop\Cubase Puglin\build\ARA_SDK\ARA_Library\ARA_API.build\ARA_API.vcxproj" (預設目標) 建置完成。
+專案 "C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj" (1) 正在節點 1 (預設目標) 上建置 "C:\Users\666\Desktop\Cubase Puglin\build\ARA_SDK\ARA_Library\ARA_PlugIn_Library.vcxproj" (4)。
+InitializeBuildStatus:
+  由於指定了 "AlwaysCreate"，因此正在建立 "ARA_PlugIn_Library.dir\Release\ARA_Plug.B6117479.tlog\unsuccessfulbuild"。
+CustomBuild:
+  所有輸出都是最新的。
+ClCompile:
+  所有輸出都是最新的。
+  所有輸出都是最新的。
+Lib:
+  所有輸出都是最新的。
+  ARA_PlugIn_Library.vcxproj -> C:\Users\666\Desktop\Cubase Puglin\build\ARA_SDK\ARA_Library\Release\ARA_PlugIn_Library.lib
+FinalizeBuildStatus:
+  正在刪除檔案 "ARA_PlugIn_Library.dir\Release\ARA_Plug.B6117479.tlog\unsuccessfulbuild"。
+  正在變更時間戳記 "ARA_PlugIn_Library.dir\Release\ARA_Plug.B6117479.tlog\ARA_PlugIn_Library.lastbuildstate"。
+專案 "C:\Users\666\Desktop\Cubase Puglin\build\ARA_SDK\ARA_Library\ARA_PlugIn_Library.vcxproj" (預設目標) 建置完成。
+專案 "C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj" (1) 正在節點 1 (預設目標) 上建置 "C:\Users\666\Desktop\Cubase Puglin\build\vst3sdk\base.vcxproj" (5)。
+InitializeBuildStatus:
+  由於指定了 "AlwaysCreate"，因此正在建立 "base.dir\Release\base.tlog\unsuccessfulbuild"。
+CustomBuild:
+  所有輸出都是最新的。
+ClCompile:
+  所有輸出都是最新的。
+Lib:
+  所有輸出都是最新的。
+  base.vcxproj -> C:\Users\666\Desktop\Cubase Puglin\build\lib\Release\base.lib
+FinalizeBuildStatus:
+  正在刪除檔案 "base.dir\Release\base.tlog\unsuccessfulbuild"。
+  正在變更時間戳記 "base.dir\Release\base.tlog\base.lastbuildstate"。
+專案 "C:\Users\666\Desktop\Cubase Puglin\build\vst3sdk\base.vcxproj" (預設目標) 建置完成。
+專案 "C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj" (1) 正在節點 1 (預設目標) 上建置 "C:\Users\666\Desktop\Cubase Puglin\build\vst3sdk\public.sdk\samples\vst-utilities\moduleinfotool\moduleinfotool.vcxproj" (6)。
+專案 "C:\Users\666\Desktop\Cubase Puglin\build\vst3sdk\public.sdk\samples\vst-utilities\moduleinfotool\moduleinfotool.vcxproj" (6) 正在節點 1 (預設目標) 上建置 "C:\Users\666\Desktop\Cubase Puglin\build\vst3sdk\pluginterfaces.vcxproj" (7)。
+InitializeBuildStatus:
+  由於指定了 "AlwaysCreate"，因此正在建立 "pluginterfaces.dir\Release\pluginterfaces.tlog\unsuccessfulbuild"。
+CustomBuild:
+  所有輸出都是最新的。
+ClCompile:
+  所有輸出都是最新的。
+Lib:
+  所有輸出都是最新的。
+  pluginterfaces.vcxproj -> C:\Users\666\Desktop\Cubase Puglin\build\lib\Release\pluginterfaces.lib
+FinalizeBuildStatus:
+  正在刪除檔案 "pluginterfaces.dir\Release\pluginterfaces.tlog\unsuccessfulbuild"。
+  正在變更時間戳記 "pluginterfaces.dir\Release\pluginterfaces.tlog\pluginterfaces.lastbuildstate"。
+專案 "C:\Users\666\Desktop\Cubase Puglin\build\vst3sdk\pluginterfaces.vcxproj" (預設目標) 建置完成。
+專案 "C:\Users\666\Desktop\Cubase Puglin\build\vst3sdk\public.sdk\samples\vst-utilities\moduleinfotool\moduleinfotool.vcxproj" (6) 正在節點 1 (預設目標) 上建置 "C:\Users\666\Desktop\Cubase Puglin\build\vst3sdk\sdk_common.vcxproj" (8)。
+InitializeBuildStatus:
+  由於指定了 "AlwaysCreate"，因此正在建立 "sdk_common.dir\Release\sdk_common.tlog\unsuccessfulbuild"。
+CustomBuild:
+  所有輸出都是最新的。
+ClCompile:
+  所有輸出都是最新的。
+Lib:
+  所有輸出都是最新的。
+  sdk_common.vcxproj -> C:\Users\666\Desktop\Cubase Puglin\build\lib\Release\sdk_common.lib
+FinalizeBuildStatus:
+  正在刪除檔案 "sdk_common.dir\Release\sdk_common.tlog\unsuccessfulbuild"。
+  正在變更時間戳記 "sdk_common.dir\Release\sdk_common.tlog\sdk_common.lastbuildstate"。
+專案 "C:\Users\666\Desktop\Cubase Puglin\build\vst3sdk\sdk_common.vcxproj" (預設目標) 建置完成。
+專案 "C:\Users\666\Desktop\Cubase Puglin\build\vst3sdk\public.sdk\samples\vst-utilities\moduleinfotool\moduleinfotool.vcxproj" (6) 正在節點 1 (預設目標) 上建置 "C:\Users\666\Desktop\Cubase Puglin\build\vst3sdk\sdk_hosting.vcxproj" (9)。
+InitializeBuildStatus:
+  由於指定了 "AlwaysCreate"，因此正在建立 "sdk_hosting.dir\Release\sdk_hosting.tlog\unsuccessfulbuild"。
+CustomBuild:
+  所有輸出都是最新的。
+ClCompile:
+  所有輸出都是最新的。
+Lib:
+  所有輸出都是最新的。
+  sdk_hosting.vcxproj -> C:\Users\666\Desktop\Cubase Puglin\build\lib\Release\sdk_hosting.lib
+FinalizeBuildStatus:
+  正在刪除檔案 "sdk_hosting.dir\Release\sdk_hosting.tlog\unsuccessfulbuild"。
+  正在變更時間戳記 "sdk_hosting.dir\Release\sdk_hosting.tlog\sdk_hosting.lastbuildstate"。
+專案 "C:\Users\666\Desktop\Cubase Puglin\build\vst3sdk\sdk_hosting.vcxproj" (預設目標) 建置完成。
+InitializeBuildStatus:
+  由於指定了 "AlwaysCreate"，因此正在建立 "moduleinfotool.dir\Release\moduleinfotool.tlog\unsuccessfulbuild"。
+CustomBuild:
+  所有輸出都是最新的。
+ClCompile:
+  所有輸出都是最新的。
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\VC\Tools\MSVC\14.29.30133\bin\HostX64\x64\link.exe /OUT:"C:\Users\666\Desktop\Cubase Puglin\build\bin\Release\moduleinfotool.exe" /INCREMENTAL:NO /NOLOGO ..\..\..\..\..\lib\Release\sdk_hosting.lib ..\..\..\..\..\lib\Release\sdk_common.lib ..\..\..\..\..\lib\Release\base.lib ..\..\..\..\..\lib\Release\pluginterfaces.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:"C:/Users/666/Desktop/Cubase Puglin/build/bin/Release/moduleinfotool.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/666/Desktop/Cubase Puglin/build/lib/Release/moduleinfotool.lib" /MACHINE:X64  /machine:x64 moduleinfotool.dir\Release\main.obj
+  moduleinfotool.dir\Release\moduleinfocreator.obj
+  moduleinfotool.dir\Release\moduleinfoparser.obj
+  moduleinfotool.dir\Release\module_win32.obj
+  moduleinfotool.vcxproj -> C:\Users\666\Desktop\Cubase Puglin\build\bin\Release\moduleinfotool.exe
+FinalizeBuildStatus:
+  正在刪除檔案 "moduleinfotool.dir\Release\moduleinfotool.tlog\unsuccessfulbuild"。
+  正在變更時間戳記 "moduleinfotool.dir\Release\moduleinfotool.tlog\moduleinfotool.lastbuildstate"。
+專案 "C:\Users\666\Desktop\Cubase Puglin\build\vst3sdk\public.sdk\samples\vst-utilities\moduleinfotool\moduleinfotool.vcxproj" (預設目標) 建置完成。
+專案 "C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj" (1) 正在節點 1 (預設目標) 上建置 "C:\Users\666\Desktop\Cubase Puglin\build\vst3sdk\sdk.vcxproj" (10)。
+InitializeBuildStatus:
+  由於指定了 "AlwaysCreate"，因此正在建立 "sdk.dir\Release\sdk.tlog\unsuccessfulbuild"。
+CustomBuild:
+  所有輸出都是最新的。
+ClCompile:
+  所有輸出都是最新的。
+Lib:
+  所有輸出都是最新的。
+  sdk.vcxproj -> C:\Users\666\Desktop\Cubase Puglin\build\lib\Release\sdk.lib
+FinalizeBuildStatus:
+  正在刪除檔案 "sdk.dir\Release\sdk.tlog\unsuccessfulbuild"。
+  正在變更時間戳記 "sdk.dir\Release\sdk.tlog\sdk.lastbuildstate"。
+專案 "C:\Users\666\Desktop\Cubase Puglin\build\vst3sdk\sdk.vcxproj" (預設目標) 建置完成。
+InitializeBuildStatus:
+  正在變更時間戳記 "AutoSplitLeveler.dir\Release\AutoSplitLeveler.tlog\unsuccessfulbuild"。
+PreBuildEvent:
+  setlocal
+  "C:\Program Files\CMake\bin\cmake.exe" -E make_directory "C:/Users/666/Desktop/Cubase Puglin/build/VST3/Release/AutoSplitLeveler.vst3/Contents/Resources"
+  if %errorlevel% neq 0 goto :cmEnd
+  :cmEnd
+  endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+  :cmErrorLevel
+  exit /b %1
+  :cmDone
+  if %errorlevel% neq 0 goto :VCEnd
+  :VCEnd
+CustomBuild:
+  所有輸出都是最新的。
+ClCompile:
+  所有輸出都是最新的。
+  所有輸出都是最新的。
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\VC\Tools\MSVC\14.29.30133\bin\HostX64\x64\link.exe /OUT:"C:\Users\666\Desktop\Cubase Puglin\build\VST3\Release\AutoSplitLeveler.vst3\Contents\x86_64-win\AutoSplitLeveler.vst3" /INCREMENTAL:NO /NOLOGO lib\Release\sdk.lib lib\Release\pluginterfaces.lib lib\Release\base.lib ARA_SDK\ARA_Library\Release\ARA_PlugIn_Library.lib lib\Release\sdk_common.lib lib\Release\pluginterfaces.lib lib\Release\base.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/666/Desktop/Cubase Puglin/build/WIN_PDB64/Release/AutoSplitLeveler.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/666/Desktop/Cubase Puglin/build/Release/AutoSplitLeveler.lib" /MACHINE:X64  /machine:x64 /DLL AutoSplitLeveler.dir\Release\TestVST3Entry.obj
+  AutoSplitLeveler.dir\Release\TestVST3Processor.obj
+  AutoSplitLeveler.dir\Release\ARATestAudioSource.obj
+  AutoSplitLeveler.dir\Release\ARATestDocumentController.obj
+  AutoSplitLeveler.dir\Release\ARATestPlaybackRenderer.obj
+  AutoSplitLeveler.dir\Release\AutoSplitLevelerAlgorithm.obj
+  AutoSplitLeveler.dir\Release\TestAnalysis.obj
+  AutoSplitLeveler.dir\Release\TestPersistency.obj
+  AutoSplitLeveler.dir\Release\ARADebug.obj
+  AutoSplitLeveler.dir\Release\silencedetector.obj
+  AutoSplitLeveler.dir\Release\zerocrossing.obj
+  AutoSplitLeveler.dir\Release\loudnessanalyzer.obj
+  AutoSplitLeveler.dir\Release\levelingengine.obj
+     正在建立程式庫 C:/Users/666/Desktop/Cubase Puglin/build/Release/AutoSplitLeveler.lib 和物件 C:/Users/666/Desktop/Cubase Puglin/build/Release/AutoSplitLeveler.exp
+  AutoSplitLeveler.vcxproj -> C:\Users\666\Desktop\Cubase Puglin\build\VST3\Release\AutoSplitLeveler.vst3\Contents\x86_64-win\AutoSplitLeveler.vst3
+PostBuildEvent:
+  [SMTG] Copy PlugIn.ico and desktop.ini and change their attributes.		
+  setlocal
+  "C:\Program Files\CMake\bin\cmake.exe" -E copy "C:/Users/666/Desktop/Cubase Puglin/vst3sdk/cmake/modules/../templates/VST_Logo_Steinberg.ico" "C:/Users/666/Desktop/Cubase Puglin/build/VST3/Release/AutoSplitLeveler.vst3/PlugIn.ico"
+  if %errorlevel% neq 0 goto :cmEnd
+  "C:\Program Files\CMake\bin\cmake.exe" -E copy "C:/Users/666/Desktop/Cubase Puglin/vst3sdk/cmake/modules/../templates/desktop.ini.in" "C:/Users/666/Desktop/Cubase Puglin/build/VST3/Release/AutoSplitLeveler.vst3/desktop.ini"
+  if %errorlevel% neq 0 goto :cmEnd
+  attrib +s "C:/Users/666/Desktop/Cubase Puglin/build/VST3/Release/AutoSplitLeveler.vst3/desktop.ini"
+  if %errorlevel% neq 0 goto :cmEnd
+  attrib +s "C:/Users/666/Desktop/Cubase Puglin/build/VST3/Release/AutoSplitLeveler.vst3/PlugIn.ico"
+  if %errorlevel% neq 0 goto :cmEnd
+  attrib +s "C:/Users/666/Desktop/Cubase Puglin/build/VST3/Release/AutoSplitLeveler.vst3"
+  if %errorlevel% neq 0 goto :cmEnd
+  :cmEnd
+  endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+  :cmErrorLevel
+  exit /b %1
+  :cmDone
+  if %errorlevel% neq 0 goto :VCEnd
+  setlocal
+  bin\Release\moduleinfotool.exe -create -version 1.0.0 -path "C:/Users/666/Desktop/Cubase Puglin/build/VST3/Release/AutoSplitLeveler.vst3" -output "C:/Users/666/Desktop/Cubase Puglin/build/VST3/Release/AutoSplitLeveler.vst3/Contents/Resources/moduleinfo.json"
+  if %errorlevel% neq 0 goto :cmEnd
+  :cmEnd
+  endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+  :cmErrorLevel
+  exit /b %1
+  :cmDone
+  if %errorlevel% neq 0 goto :VCEnd
+  setlocal
+  "C:\Program Files\CMake\bin\cmake.exe" -E echo [SMTG] Delete previous link...
+  if %errorlevel% neq 0 goto :cmEnd
+  "C:\Program Files\CMake\bin\cmake.exe" -E rm -rf C:/Users/666/AppData/Local/Programs/Common/VST3/AutoSplitLeveler.vst3
+  if %errorlevel% neq 0 goto :cmEnd
+  "C:\Program Files\CMake\bin\cmake.exe" -E echo [SMTG] Creation of the new link...
+  if %errorlevel% neq 0 goto :cmEnd
+  "C:\Program Files\CMake\bin\cmake.exe" -E create_symlink  "C:/Users/666/Desktop/Cubase Puglin/build/VST3/Release/AutoSplitLeveler.vst3" C:/Users/666/AppData/Local/Programs/Common/VST3/AutoSplitLeveler.vst3
+  if %errorlevel% neq 0 goto :cmEnd
+  "C:\Program Files\CMake\bin\cmake.exe" -E echo [SMTG] Finished.
+  if %errorlevel% neq 0 goto :cmEnd
+  :cmEnd
+  endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+  :cmErrorLevel
+  exit /b %1
+  :cmDone
+  if %errorlevel% neq 0 goto :VCEnd
+  :VCEnd
+  [SMTG] Delete previous link...
+  Error removing directory "C:/Users/666/AppData/Local/Programs/Common/VST3/AutoSplitLeveler.vst3".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: "setlocal [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: "C:\Program Files\CMake\bin\cmake.exe" -E copy "C:/Users/666/Desktop/Cubase Puglin/vst3sdk/cmake/modules/../templates/VST_Logo_Steinberg.ico" "C:/Users/666/Desktop/Cubase Puglin/build/VST3/Release/AutoSplitLeveler.vst3/PlugIn.ico" [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: if %errorlevel% neq 0 goto :cmEnd [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: "C:\Program Files\CMake\bin\cmake.exe" -E copy "C:/Users/666/Desktop/Cubase Puglin/vst3sdk/cmake/modules/../templates/desktop.ini.in" "C:/Users/666/Desktop/Cubase Puglin/build/VST3/Release/AutoSplitLeveler.vst3/desktop.ini" [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: if %errorlevel% neq 0 goto :cmEnd [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: attrib +s "C:/Users/666/Desktop/Cubase Puglin/build/VST3/Release/AutoSplitLeveler.vst3/desktop.ini" [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: if %errorlevel% neq 0 goto :cmEnd [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: attrib +s "C:/Users/666/Desktop/Cubase Puglin/build/VST3/Release/AutoSplitLeveler.vst3/PlugIn.ico" [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: if %errorlevel% neq 0 goto :cmEnd [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: attrib +s "C:/Users/666/Desktop/Cubase Puglin/build/VST3/Release/AutoSplitLeveler.vst3" [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: if %errorlevel% neq 0 goto :cmEnd [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: :cmEnd [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: :cmErrorLevel [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: exit /b %1 [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: :cmDone [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: if %errorlevel% neq 0 goto :VCEnd [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: setlocal [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: bin\Release\moduleinfotool.exe -create -version 1.0.0 -path "C:/Users/666/Desktop/Cubase Puglin/build/VST3/Release/AutoSplitLeveler.vst3" -output "C:/Users/666/Desktop/Cubase Puglin/build/VST3/Release/AutoSplitLeveler.vst3/Contents/Resources/moduleinfo.json" [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: if %errorlevel% neq 0 goto :cmEnd [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: :cmEnd [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: :cmErrorLevel [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: exit /b %1 [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: :cmDone [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: if %errorlevel% neq 0 goto :VCEnd [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: setlocal [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: "C:\Program Files\CMake\bin\cmake.exe" -E echo [SMTG] Delete previous link... [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: if %errorlevel% neq 0 goto :cmEnd [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: "C:\Program Files\CMake\bin\cmake.exe" -E rm -rf C:/Users/666/AppData/Local/Programs/Common/VST3/AutoSplitLeveler.vst3 [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: if %errorlevel% neq 0 goto :cmEnd [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: "C:\Program Files\CMake\bin\cmake.exe" -E echo [SMTG] Creation of the new link... [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: if %errorlevel% neq 0 goto :cmEnd [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: "C:\Program Files\CMake\bin\cmake.exe" -E create_symlink  "C:/Users/666/Desktop/Cubase Puglin/build/VST3/Release/AutoSplitLeveler.vst3" C:/Users/666/AppData/Local/Programs/Common/VST3/AutoSplitLeveler.vst3 [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: if %errorlevel% neq 0 goto :cmEnd [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: "C:\Program Files\CMake\bin\cmake.exe" -E echo [SMTG] Finished. [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: if %errorlevel% neq 0 goto :cmEnd [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: :cmEnd [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: :cmErrorLevel [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: exit /b %1 [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: :cmDone [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: if %errorlevel% neq 0 goto :VCEnd [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: :VCEnd" 命令以返回碼 1 結束。 [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+專案 "C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj" (預設目標) 建置完成 -- 失敗。
+
+建置失敗。
+
+"C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj" (預設目標) (1) ->
+(PostBuildEvent 目標) -> 
+  C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: "setlocal [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: "C:\Program Files\CMake\bin\cmake.exe" -E copy "C:/Users/666/Desktop/Cubase Puglin/vst3sdk/cmake/modules/../templates/VST_Logo_Steinberg.ico" "C:/Users/666/Desktop/Cubase Puglin/build/VST3/Release/AutoSplitLeveler.vst3/PlugIn.ico" [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: if %errorlevel% neq 0 goto :cmEnd [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: "C:\Program Files\CMake\bin\cmake.exe" -E copy "C:/Users/666/Desktop/Cubase Puglin/vst3sdk/cmake/modules/../templates/desktop.ini.in" "C:/Users/666/Desktop/Cubase Puglin/build/VST3/Release/AutoSplitLeveler.vst3/desktop.ini" [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: if %errorlevel% neq 0 goto :cmEnd [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: attrib +s "C:/Users/666/Desktop/Cubase Puglin/build/VST3/Release/AutoSplitLeveler.vst3/desktop.ini" [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: if %errorlevel% neq 0 goto :cmEnd [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: attrib +s "C:/Users/666/Desktop/Cubase Puglin/build/VST3/Release/AutoSplitLeveler.vst3/PlugIn.ico" [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: if %errorlevel% neq 0 goto :cmEnd [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: attrib +s "C:/Users/666/Desktop/Cubase Puglin/build/VST3/Release/AutoSplitLeveler.vst3" [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: if %errorlevel% neq 0 goto :cmEnd [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: :cmEnd [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: :cmErrorLevel [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: exit /b %1 [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: :cmDone [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: if %errorlevel% neq 0 goto :VCEnd [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: setlocal [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: bin\Release\moduleinfotool.exe -create -version 1.0.0 -path "C:/Users/666/Desktop/Cubase Puglin/build/VST3/Release/AutoSplitLeveler.vst3" -output "C:/Users/666/Desktop/Cubase Puglin/build/VST3/Release/AutoSplitLeveler.vst3/Contents/Resources/moduleinfo.json" [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: if %errorlevel% neq 0 goto :cmEnd [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: :cmEnd [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: :cmErrorLevel [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: exit /b %1 [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: :cmDone [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: if %errorlevel% neq 0 goto :VCEnd [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: setlocal [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: "C:\Program Files\CMake\bin\cmake.exe" -E echo [SMTG] Delete previous link... [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: if %errorlevel% neq 0 goto :cmEnd [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: "C:\Program Files\CMake\bin\cmake.exe" -E rm -rf C:/Users/666/AppData/Local/Programs/Common/VST3/AutoSplitLeveler.vst3 [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: if %errorlevel% neq 0 goto :cmEnd [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: "C:\Program Files\CMake\bin\cmake.exe" -E echo [SMTG] Creation of the new link... [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: if %errorlevel% neq 0 goto :cmEnd [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: "C:\Program Files\CMake\bin\cmake.exe" -E create_symlink  "C:/Users/666/Desktop/Cubase Puglin/build/VST3/Release/AutoSplitLeveler.vst3" C:/Users/666/AppData/Local/Programs/Common/VST3/AutoSplitLeveler.vst3 [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: if %errorlevel% neq 0 goto :cmEnd [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: "C:\Program Files\CMake\bin\cmake.exe" -E echo [SMTG] Finished. [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: if %errorlevel% neq 0 goto :cmEnd [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: :cmEnd [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: :cmErrorLevel [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: exit /b %1 [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: :cmDone [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: if %errorlevel% neq 0 goto :VCEnd [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(155,5): error MSB3073: :VCEnd" 命令以返回碼 1 結束。 [C:\Users\666\Desktop\Cubase Puglin\build\AutoSplitLeveler.vcxproj]
+
+    0 個警告
+    1 個錯誤
+
+經過時間 00:00:05.71
+

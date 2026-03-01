@@ -1,0 +1,7 @@
+Microsoft (R) Build Engine for .NET Framework 16.11.6+a918ceb31 版
+Copyright (C) Microsoft Corporation. 著作權所有，並保留一切權利。
+
+MSBUILD : error MSB1016: 請指定詳細程度等級。
+參數: -verbosity:
+
+如需參數語法，請鍵入 "MSBuild -help"
