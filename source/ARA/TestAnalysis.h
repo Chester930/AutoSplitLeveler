@@ -32,6 +32,8 @@ struct TestNote
     float _volume;
     double _startTime;
     double _duration;
+    float _maxPeak; // New: stored as dBFS
+    float _minPeak; // New: stored as dBFS
 };
 
 /*******************************************************************************/
@@ -50,6 +52,10 @@ public:
     virtual void notifyAnalysisProgressCompleted () noexcept {}
     virtual bool readAudioSamples (int64_t samplePosition, int64_t samplesPerChannel, void* const buffers[]) noexcept = 0;
     virtual bool shouldCancel () const noexcept { return false; }
+
+    // Analysis parameters from UI
+    virtual float getSilenceThresholdDb () const noexcept { return -45.0f; }
+    virtual float getSilenceGapMs () const noexcept { return 300.0f; }
 };
 
 /*******************************************************************************/

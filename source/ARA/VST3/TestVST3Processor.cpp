@@ -23,12 +23,15 @@
 
 #include "ARA_Library/PlugIn/ARAPlug.h"
 #include "ARA_Library/Debug/ARADebug.h"
+#include "ARATestAudioSource.h"
+#include "pluginterfaces/vst/ivstparameterchanges.h"
 #include <cmath>
 ARA_DISABLE_VST3_WARNINGS_BEGIN
     #include "pluginterfaces/vst/ivstprocesscontext.h"
 ARA_DISABLE_VST3_WARNINGS_END
 
-using namespace Steinberg;
+namespace Steinberg {
+namespace Vst {
 
 // helper to improve readability
 static int32 getAudioBusChannelCount (const IPtr<Vst::Bus>& bus)
@@ -117,7 +120,64 @@ tresult PLUGIN_API TestVST3Processor::setActive (TBool state)
 //-----------------------------------------------------------------------------
 tresult PLUGIN_API TestVST3Processor::process (Vst::ProcessData& data)
 {
-    //--- Here you have to implement your processing
+    //--- Handle Parameter Changes
+    if (data.inputParameterChanges)
+    {
+        int32 numParamsChanged = data.inputParameterChanges->getParameterCount();
+        for (int32 i = 0; i < numParamsChanged; i++)
+        {
+            auto* queue = data.inputParameterChanges->getParameterData(i);
+            if (!queue) continue;
+            int32 numPoints = queue->getPointCount();
+            if (numPoints <= 0) continue;
+
+            ParamValue value;
+            int32 sampleOffset;
+            if (queue->getPoint(numPoints - 1, sampleOffset, value) == kResultTrue)
+            {
+                switch (queue->getParameterId())
+                {
+                    case kSilenceThreshId: 
+                        m_silenceThreshDb = (float)(value * 96.0 - 96.0); 
+                        if (auto playbackRenderer = _araPlugInExtension.getPlaybackRenderer<ARATestPlaybackRenderer> ()) {
+                            for (auto region : playbackRenderer->getPlaybackRegions())
+                                if (auto source = region->getAudioModification()->getAudioSource<ARATestAudioSource>())
+                                    source->setSilenceThresholdDb(m_silenceThreshDb);
+                        }
+                        break;
+                    case kSilenceGapId:
+                        m_silenceGapMs = (float)(value * 2000.0); 
+                        if (auto playbackRenderer = _araPlugInExtension.getPlaybackRenderer<ARATestPlaybackRenderer> ()) {
+                            for (auto region : playbackRenderer->getPlaybackRegions())
+                                if (auto source = region->getAudioModification()->getAudioSource<ARATestAudioSource>())
+                                    source->setSilenceGapMs(m_silenceGapMs);
+                        }
+                        break;
+                    case kTargetPeakId:
+                        m_targetPeakDb = (float)(value * 24.0 - 24.0); 
+                        if (auto playbackRenderer = _araPlugInExtension.getPlaybackRenderer<ARATestPlaybackRenderer> ()) {
+                            playbackRenderer->setTargetPeakDb(m_targetPeakDb);
+                        }
+                        break;
+                    case kTriggerSplitId:
+                        if (value > 0.5) 
+                        {
+                            // Trigger ARA re-analysis (Function 1)
+                            if (auto docController = _araPlugInExtension.getDocumentController())
+                            {
+                                // We need to trigger analysis for all sources in this instance
+                                if (auto playbackRenderer = _araPlugInExtension.getPlaybackRenderer<ARATestPlaybackRenderer> ()) {
+                                    for (auto region : playbackRenderer->getPlaybackRegions())
+                                        if (auto source = region->getAudioModification()->getAudioSource<ARATestAudioSource>())
+                                            static_cast<ARATestDocumentController*>(docController)->startOrScheduleAnalysisOfAudioSource(source);
+                                }
+                            }
+                        }
+                        break;
+                }
+            }
+        }
+    }
 
     if (!data.outputs || !data.outputs[0].numChannels)
         return kResultTrue;
@@ -125,78 +185,75 @@ tresult PLUGIN_API TestVST3Processor::process (Vst::ProcessData& data)
     ARA_VALIDATE_API_CONDITION (data.outputs[0].numChannels == getAudioBusChannelCount (audioOutputs[0]));
     ARA_VALIDATE_API_CONDITION (data.numSamples <= processSetup.maxSamplesPerBlock);
 
-    // Internal Auto-Leveler for DOP / Insert
-    const float targetRmsDb = -18.0f; // Target output RMS
-    const float noiseGateDb = -45.0f; // Silence threshold
-    const float maxGainDb = 12.0f;
-    const float minGainDb = -12.0f;
+    // Function 2: Dynamic Spread Matching
+    const float targetPeakDb = m_targetPeakDb; 
 
-    // 50ms RMS window smoothing
-    const float rmsWindowSec = 0.050f;
-    const float rmsAlpha = 1.0f - std::exp(-1.0f / (m_sampleRate * rmsWindowSec));
-
-    // Attack/Release smoothing (10ms attack for peaks, 200ms release for quiet recovery)
-    const float attackSec = 0.010f; 
-    const float releaseSec = 0.200f;
-    const float attackAlpha = 1.0f - std::exp(-1.0f / (m_sampleRate * attackSec));
-    const float releaseAlpha = 1.0f - std::exp(-1.0f / (m_sampleRate * releaseSec));
-
-    for (int32 sampleIndex = 0; sampleIndex < data.numSamples; ++sampleIndex)
+    // Fetch ARA data for the current region
+    const TestNote* activeNote { nullptr };
+    if (auto playbackRenderer = _araPlugInExtension.getPlaybackRenderer<ARATestPlaybackRenderer> ())
     {
-        // Calculate mono instantaneous power
-        float currentPower = 0.0f;
-        for (int32 c = 0; c < data.outputs[0].numChannels; ++c)
+        // For DOP and standard processing, we need to know where we are in the audio source.
+        // If the host provides project time, we use it. Otherwise, we might need to track it.
+        int64_t currentSourcePos = 0;
+        if (data.processContext && (data.processContext->state & Vst::ProcessContext::kProjectTimeMusicValid))
         {
-            float s = data.inputs[0].channelBuffers32[c][sampleIndex];
-            currentPower += s * s;
-        }
-        if (data.outputs[0].numChannels > 0)
-            currentPower /= (float)data.outputs[0].numChannels;
-
-        // RMS smoothing state
-        m_rmsWindowPower = m_rmsWindowPower * (1.0f - rmsAlpha) + currentPower * rmsAlpha;
-
-        float powerDb = -100.0f;
-        if (m_rmsWindowPower > 1e-10f)
-            powerDb = 10.0f * std::log10(m_rmsWindowPower);
-
-        float targetGainDb = 0.0f;
-        if (powerDb > noiseGateDb)
-        {
-            // Calculate gain to hit target RMS
-            targetGainDb = targetRmsDb - powerDb;
-
-            // Clamp to safe bounds
-            if (targetGainDb > maxGainDb) targetGainDb = maxGainDb;
-            if (targetGainDb < minGainDb) targetGainDb = minGainDb;
+            // Simplified: Use project time samples if available
+            currentSourcePos = data.processContext->projectTimeSamples;
         }
 
-        // Smooth current gain towards target gain based on attack/release
-        if (targetGainDb < m_currentGainDb)
+        for (const auto& playbackRegion : playbackRenderer->getPlaybackRegions ())
         {
-            // Gain is decreasing (Compressing a peak -> Fast Attack)
-            m_currentGainDb = m_currentGainDb * (1.0f - attackAlpha) + targetGainDb * attackAlpha;
-        }
-        else
-        {
-            // Gain is increasing (Recovering a quiet part -> Slow Release)
-            m_currentGainDb = m_currentGainDb * (1.0f - releaseAlpha) + targetGainDb * releaseAlpha;
-        }
-
-        // Convert back to linear format and apply to output samples
-        float linearGain = std::pow(10.0f, m_currentGainDb / 20.0f);
-        
-        for (int32 c = 0; c < data.outputs[0].numChannels; ++c)
-        {
-            data.outputs[0].channelBuffers32[c][sampleIndex] = 
-                data.inputs[0].channelBuffers32[c][sampleIndex] * linearGain;
+            const auto audioSource = playbackRegion->getAudioModification()->getAudioSource<const ARATestAudioSource>();
+            const auto noteContent = audioSource->getNoteContent();
+            if (noteContent)
+            {
+                const double timeSec = static_cast<double>(currentSourcePos) / processSetup.sampleRate;
+                for (const auto& note : *noteContent)
+                {
+                    if (timeSec >= note._startTime && timeSec < note._startTime + note._duration)
+                    {
+                        activeNote = &note;
+                        break;
+                    }
+                }
+            }
+            if (activeNote) break;
         }
     }
 
-    // if we are an ARA editor renderer, we now would add out preview signal to the output, but
-    // our test implementation does not support editing and thus never generates any preview signal.
-//  if (auto editorRenderer = _araPlugInExtension.getEditorRenderer<ARATestEditorRenderer*> ())
-//      editorRenderer->addEditorSignal (...);
+    if (!activeNote || activeNote->_maxPeak <= -90.0f)
+    {
+        // Fallback: No ARA analysis found, just pass through or use basic gain
+        return kResultTrue;
+    }
+
+    const float spreadAna = activeNote->_maxPeak - activeNote->_minPeak;
+    const float scale = (spreadAna > 0.1f) ? (4.0f / spreadAna) : 1.0f;
+    const float maxPeakAna = activeNote->_maxPeak;
+
+    for (int32 sampleIndex = 0; sampleIndex < data.numSamples; ++sampleIndex)
+    {
+        for (int32 c = 0; c < data.outputs[0].numChannels; ++c)
+        {
+            float s = data.inputs[0].channelBuffers32[c][sampleIndex];
+            if (std::abs(s) < 1e-10f) 
+            {
+                data.outputs[0].channelBuffers32[c][sampleIndex] = 0.0f;
+                continue;
+            }
+
+            float originalDb = 20.0f * std::log10(std::abs(s));
+            
+            // Core Formula: New_dB = TargetPeak - (MaxPeakAna - Original_dB) * (4.0 / SpreadAna)
+            float newDb = targetPeakDb - (maxPeakAna - originalDb) * scale;
+            
+            float linearGain = std::pow(10.0f, (newDb - originalDb) / 20.0f);
+            
+            // Maintain original sign
+            float sign = (s > 0) ? 1.0f : -1.0f;
+            data.outputs[0].channelBuffers32[c][sampleIndex] = std::pow(10.0f, newDb / 20.0f) * sign;
+        }
+    }
 
     return kResultTrue;
 }
@@ -244,3 +301,6 @@ const ARA::ARAPlugInExtensionInstance* PLUGIN_API TestVST3Processor::bindToDocum
 {
     return _araPlugInExtension.bindToARA (documentControllerRef, knownRoles, assignedRoles);
 }
+
+} // namespace Vst
+} // namespace Steinberg

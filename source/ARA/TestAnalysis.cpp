@@ -73,6 +73,8 @@ void encodeTestNoteContent (const TestNoteContent* content, TestArchiver& archiv
             archiver.writeDouble (noteToPersist._volume);
             archiver.writeDouble (noteToPersist._startTime);
             archiver.writeDouble (noteToPersist._duration);
+            archiver.writeDouble (noteToPersist._maxPeak);
+            archiver.writeDouble (noteToPersist._minPeak);
         }
     }
 }
@@ -91,6 +93,8 @@ std::unique_ptr<TestNoteContent> decodeTestNoteContent (TestUnarchiver& unarchiv
             persistedNote._volume = static_cast<float> (unarchiver.readDouble ());
             persistedNote._startTime = unarchiver.readDouble ();
             persistedNote._duration = unarchiver.readDouble ();
+            persistedNote._maxPeak = static_cast<float> (unarchiver.readDouble ());
+            persistedNote._minPeak = static_cast<float> (unarchiver.readDouble ());
         }
     }
     return result;
@@ -224,7 +228,9 @@ public:
 protected:
     void addNotesForSignalRange (TestNoteContent& foundNotes, const float volume, const double startTime, const double duration) const override
     {
-        foundNotes.emplace_back (TestNote { ARA::kARAInvalidFrequency, volume, startTime, duration });
+        // For percussive, we use the simple block volume as peak.
+        float peakDb = (volume > 0.0f) ? 20.0f * std::log10(volume) : -100.0f;
+        foundNotes.emplace_back (TestNote { ARA::kARAInvalidFrequency, volume, startTime, duration, peakDb, peakDb });
     }
 } percussiveAlgorithm;
 
@@ -241,7 +247,8 @@ public:
 protected:
     void addNotesForSignalRange (TestNoteContent& foundNotes, const float volume, const double startTime, const double duration) const override
     {
-        foundNotes.emplace_back (TestNote { 440.0f, volume, startTime, duration }); // standard tuning A
+        float peakDb = (volume > 0.0f) ? 20.0f * std::log10(volume) : -100.0f;
+        foundNotes.emplace_back (TestNote { 440.0f, volume, startTime, duration, peakDb, peakDb }); // standard tuning A
     }
 } monophonicAlgorithm;
 
@@ -258,8 +265,9 @@ public:
 protected:
     void addNotesForSignalRange (TestNoteContent& foundNotes, const float volume, const double startTime, const double duration) const override
     {
-        foundNotes.emplace_back (TestNote { 523.2511f, volume, startTime, duration });  // standard tuning C
-        foundNotes.emplace_back (TestNote { 659.2551f, volume, startTime, duration });  // standard tuning E
+        float peakDb = (volume > 0.0f) ? 20.0f * std::log10(volume) : -100.0f;
+        foundNotes.emplace_back (TestNote { 523.2511f, volume, startTime, duration, peakDb, peakDb });  // standard tuning C
+        foundNotes.emplace_back (TestNote { 659.2551f, volume, startTime, duration, peakDb, peakDb });  // standard tuning E
     }
 } polyphonicAlgorithm;
 
@@ -296,7 +304,7 @@ public:
         }
 #endif
 
-        TestNote foundNote { ARA::kARAInvalidFrequency, 1.0f, 0.0, ARA::timeAtSamplePosition (sampleCount, sampleRate) };
+        TestNote foundNote { ARA::kARAInvalidFrequency, 1.0f, 0.0, ARA::timeAtSamplePosition (sampleCount, sampleRate), 0.0f, 0.0f };
         analysisCallbacks->notifyAnalysisProgressCompleted ();
         return std::make_unique<TestNoteContent> (std::vector<TestNote> { foundNote });
     }

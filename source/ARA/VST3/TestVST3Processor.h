@@ -20,6 +20,7 @@
 #pragma once
 
 #include "ARA_API/ARAVST3.h"
+#include "TestVST3Controller.h"
 
 ARA_DISABLE_VST3_WARNINGS_BEGIN
 
@@ -28,61 +29,64 @@ ARA_DISABLE_VST3_WARNINGS_BEGIN
 
 #include "ARA_Library/PlugIn/ARAPlug.h"
 
+namespace Steinberg {
+namespace Vst {
+
 //------------------------------------------------------------------------
 //  TestVST3Processor
 //------------------------------------------------------------------------
-class TestVST3Processor : public Steinberg::Vst::AudioEffect, public ARA::IPlugInEntryPoint, public ARA::IPlugInEntryPoint2
+class TestVST3Processor : public AudioEffect, public ARA::IPlugInEntryPoint, public ARA::IPlugInEntryPoint2
 {
 public:
     TestVST3Processor ();
     ~TestVST3Processor () SMTG_OVERRIDE;
 
     // Class IDs
-    static const Steinberg::FUID getClassFUID ()
+    static const FUID getClassFUID ()
     {
-        return Steinberg::FUID (0xcb347e94, 0xdf4f42cf, 0x902ef651, 0x30cf41db);
+        return FUID (0xcb347e94, 0xdf4f42cf, 0x902ef651, 0x30cf41db);
     }
 
-    static const Steinberg::FUID getEditControllerClassFUID ()
+    static const FUID getEditControllerClassFUID ()
     {
-        return Steinberg::FUID (0xcbe26d00, 0x67da43e8, 0x912c1248, 0xd10e602b);
+        return FUID (0xcbe26d00, 0x67da43e8, 0x912c1248, 0xd10e602b);
     }
 
     // Create functions
-    static Steinberg::FUnknown* createInstance (void* /*context*/)
+    static FUnknown* createInstance (void* /*context*/)
     {
-        return static_cast<Steinberg::Vst::IAudioProcessor*> (new TestVST3Processor);
+        return static_cast<IAudioProcessor*> (new TestVST3Processor);
     }
 
-    static Steinberg::FUnknown* createEditControllerInstance (void* /*context*/)
+    static FUnknown* createEditControllerInstance (void* /*context*/)
     {
-        return static_cast<Steinberg::Vst::IEditController*> (new Steinberg::Vst::EditController);
+        return TestVST3Controller::createInstance (nullptr);
     }
 
     //------------------------------------------------------------------------
     // AudioEffect overrides:
     //------------------------------------------------------------------------
     /** Called at first after constructor */
-    Steinberg::tresult PLUGIN_API initialize (Steinberg::FUnknown* context) SMTG_OVERRIDE;
+    tresult PLUGIN_API initialize (FUnknown* context) SMTG_OVERRIDE;
 
     /** Called at the end before destructor */
-    Steinberg::tresult PLUGIN_API terminate () SMTG_OVERRIDE;
+    tresult PLUGIN_API terminate () SMTG_OVERRIDE;
 
     /** Switch the Plug-in on/off */
-    Steinberg::tresult PLUGIN_API setActive (Steinberg::TBool state) SMTG_OVERRIDE;
+    tresult PLUGIN_API setActive (TBool state) SMTG_OVERRIDE;
 
     /** Will be called before any process call */
-    Steinberg::tresult PLUGIN_API setupProcessing (Steinberg::Vst::ProcessSetup& newSetup) SMTG_OVERRIDE;
+    tresult PLUGIN_API setupProcessing (ProcessSetup& newSetup) SMTG_OVERRIDE;
 
     /** Try to set (host => plug-in) a wanted arrangement for inputs and outputs. */
-    Steinberg::tresult PLUGIN_API setBusArrangements (Steinberg::Vst::SpeakerArrangement* inputs, Steinberg::int32 numIns,
-                                                      Steinberg::Vst::SpeakerArrangement* outputs, Steinberg::int32 numOuts) SMTG_OVERRIDE;
+    tresult PLUGIN_API setBusArrangements (SpeakerArrangement* inputs, int32 numIns,
+                                                      SpeakerArrangement* outputs, int32 numOuts) SMTG_OVERRIDE;
 
     /** Asks if a given sample size is supported see SymbolicSampleSizes. */
-    Steinberg::tresult PLUGIN_API canProcessSampleSize (Steinberg::int32 symbolicSampleSize) SMTG_OVERRIDE;
+    tresult PLUGIN_API canProcessSampleSize (int32 symbolicSampleSize) SMTG_OVERRIDE;
 
     /** Here we go...the process call */
-    Steinberg::tresult PLUGIN_API process (Steinberg::Vst::ProcessData& data) SMTG_OVERRIDE;
+    tresult PLUGIN_API process (ProcessData& data) SMTG_OVERRIDE;
 
 
     //------------------------------------------------------------------------
@@ -111,10 +115,17 @@ public:
 protected:
     ARA::PlugIn::PlugInExtension _araPlugInExtension;
 
-    // Auto-Leveler State for DOP
+    // Auto-Leveler State for DOP / UI
     float m_sampleRate = 44100.0f;
+    float m_silenceThreshDb = -45.0f;
+    float m_silenceGapMs = 300.0f;
+    float m_targetPeakDb = -3.0f;
+
     float m_rmsWindowPower = 0.0f;
     float m_currentGainDb = 0.0f;
 };
+
+} // namespace Vst
+} // namespace Steinberg
 
 ARA_DISABLE_VST3_WARNINGS_END

@@ -29,26 +29,15 @@ ARA_DISABLE_VST3_WARNINGS_BEGIN
     #include "public.sdk/source/main/pluginfactoryvst3.h"
 #endif
 
+using namespace Steinberg;
+using namespace Steinberg::Vst;
+
 
 //------------------------------------------------------------------------
 //  Module init/exit
 //------------------------------------------------------------------------
 
-//------------------------------------------------------------------------
-// called after library was loaded
-bool InitModule ();
-bool InitModule ()
-{
-    return true;
-}
-
-//------------------------------------------------------------------------
-// called after library is unloaded
-bool DeinitModule ();
-bool DeinitModule ()
-{
-    return true;
-}
+// Module initialization is handled by the VST3 SDK helper libraries.
 
 //------------------------------------------------------------------------
 //  VST Class IIDs

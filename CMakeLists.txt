@@ -1,5 +1,14 @@
 cmake_minimum_required(VERSION 3.15.0)
 
+# Aggressively ignore MinGW/MSYS2 paths to avoid MSVC conflicts
+set(CMAKE_IGNORE_PATH "C:/msys64")
+set(CMAKE_SYSTEM_IGNORE_PATH "C:/msys64")
+set(VSTGUI_USE_INTERNAL_EXPAT ON CACHE BOOL "" FORCE)
+set(SMTG_USE_STDLIB_FOR_EXPAT ON CACHE BOOL "" FORCE)
+set(EXPAT_INCLUDE_DIR "" CACHE PATH "" FORCE)
+set(EXPAT_LIBRARY "" CACHE FILEPATH "" FORCE)
+set(EXPAT_FOUND FALSE CACHE BOOL "" FORCE)
+
 project(AutoSplitLeveler VERSION 1.0.0)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -8,7 +17,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Disable VST3 SDK samples and GUI to speed up build
 set(SMTG_ADD_VST3_PLUGINS_SAMPLES OFF CACHE BOOL "Add VST3 Plugins Samples" FORCE)
 set(SMTG_ADD_VST3_HOSTING_SAMPLES OFF CACHE BOOL "Add VST3 Hosting Samples" FORCE)
-set(SMTG_ADD_VSTGUI OFF CACHE BOOL "Add VSTGUI" FORCE)
+set(SMTG_ADD_VSTGUI ON CACHE BOOL "Add VSTGUI" FORCE)
 set(SMTG_BUILD_DOCS OFF CACHE BOOL "Build Docs" FORCE)
 
 # Path to the VST3 SDK
@@ -23,8 +32,11 @@ add_subdirectory(${ARA_LIBRARY_DIR})
 set(target AutoSplitLeveler)
 set(sources
     source/ARA/VST3/TestVST3Entry.cpp
+    vst3sdk/public.sdk/source/main/dllmain.cpp
     source/ARA/VST3/TestVST3Processor.cpp
     source/ARA/VST3/TestVST3Processor.h
+    source/ARA/VST3/TestVST3Controller.cpp
+    source/ARA/VST3/TestVST3Controller.h
     source/ARA/ARATestAudioSource.cpp
     source/ARA/ARATestDocumentController.cpp
     source/ARA/ARATestPlaybackRenderer.cpp
@@ -41,6 +53,7 @@ set(sources
     source/levelingengine.cpp
     source/levelingengine.h
     source/version.h
+    source/ARA/VST3/autosplitleveler.uidesc
 )
 
 set(SMTG_RUN_VST_VALIDATOR OFF)
@@ -58,6 +71,7 @@ target_link_libraries(${target} PRIVATE
     pluginterfaces
     base
     ARA_PlugIn_Library
+    vstgui_support
 )
 
 target_include_directories(${target} PRIVATE

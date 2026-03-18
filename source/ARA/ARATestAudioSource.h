@@ -42,6 +42,12 @@ public:
     void setNoteContent (std::unique_ptr<TestNoteContent>&& analysisResult, ARA::ARAContentGrade grade, bool fromHost) noexcept;
     void clearNoteContent () noexcept { return setNoteContent ({}, ARA::kARAContentGradeInitial, false); }
 
+    // Analysis parameters from UI
+    float getSilenceThresholdDb () const noexcept { return _silenceThresholdDb; }
+    void setSilenceThresholdDb (float db) noexcept { _silenceThresholdDb = db; }
+    float getSilenceGapMs () const noexcept { return _silenceGapMs; }
+    void setSilenceGapMs (float ms) noexcept { _silenceGapMs = ms; }
+
     // render thread sample access:
     // in order to keep this test code as simple as possible, our test audio source uses brute
     // force and caches all samples in-memory so that renderers can access it without threading issues
@@ -59,4 +65,7 @@ protected:
     bool _noteContentWasReadFromHost { false };
 
     std::vector<float> _sampleCache;
+
+    float _silenceThresholdDb { -45.0f };
+    float _silenceGapMs { 300.0f };
 };

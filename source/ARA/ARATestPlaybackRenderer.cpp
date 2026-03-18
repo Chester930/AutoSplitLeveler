@@ -79,10 +79,10 @@ void ARATestPlaybackRenderer::renderPlaybackRegions (float* const* ppOutput, ARA
                 const auto posInBuffer { posInSong - samplePosition };
                 const auto posInSource { posInSong + offsetToPlaybackRegion };
 
-                // ── per-segment gain lookup ──────────────────────────────
-                // Find which analyzed segment this sample belongs to.
-                // Notes store: _startTime (seconds), _duration (seconds), _volume (gain offset in dB).
-                float gainLinear { 1.0f };   // default: unity gain
+                // ── Dynamic Spread Scaling ──────────────────────────────
+                const float targetPeakDb = _targetPeakDb;
+                float gainLinear = 1.0f;
+
                 if (noteContent)
                 {
                     const double timeSec { static_cast<double> (posInSource) / sr };
@@ -90,18 +90,54 @@ void ARATestPlaybackRenderer::renderPlaybackRegions (float* const* ppOutput, ARA
                     {
                         if (timeSec >= note._startTime && timeSec < note._startTime + note._duration)
                         {
-                            // _volume stores gain offset in dB (negative = reduction)
-                            gainLinear = std::pow (10.0f, note._volume / 20.0f);
+                            if (note._maxPeak > -90.0f)
+                            {
+                                // Formula: New_dB = TargetPeak - (MaxPeakAna - Original_dB) * (4.0 / SpreadAna)
+                                const float spreadAna = note._maxPeak - note._minPeak;
+                                const float scale = (spreadAna > 0.1f) ? (4.0f / spreadAna) : 1.0f;
+                                const float maxPeakAna = note._maxPeak;
+
+                                // Helper function to process a single sample value
+                                auto processSample = [&](float s) -> float {
+                                    if (std::abs(s) < 1e-10f) return 0.0f;
+                                    float originalDb = 20.0f * std::log10(std::abs(s));
+                                    float newDb = targetPeakDb - (maxPeakAna - originalDb) * scale;
+                                    float sign = (s > 0) ? 1.0f : -1.0f;
+                                    return std::pow(10.0f, newDb / 20.0f) * sign;
+                                };
+
+                                // Apply to current sample
+                                if (sourceChannelCount == _channelCount)
+                                {
+                                    for (auto c { 0 }; c < sourceChannelCount; ++c)
+                                    {
+                                        float s = audioSource->getRenderSampleCacheForChannel (c)[posInSource];
+                                        ppOutput[c][posInBuffer] += processSample(s);
+                                    }
+                                }
+                                else
+                                {
+                                    float monoSum { 0.0f };
+                                    for (auto c { 0 }; c < sourceChannelCount; ++c)
+                                        monoSum += audioSource->getRenderSampleCacheForChannel (c)[posInSource];
+                                    if (sourceChannelCount > 1)
+                                        monoSum /= static_cast<float> (sourceChannelCount);
+                                    
+                                    float processedSum = processSample(monoSum);
+                                    for (auto c { 0 }; c < _channelCount; ++c)
+                                        ppOutput[c][posInBuffer] = processedSum;
+                                }
+                                goto nextSample; // Processed this sample, skip default logic
+                            }
                             break;
                         }
                     }
                 }
-                // ────────────────────────────────────────────────────────
-
+                // Default passthrough if no note found
                 if (sourceChannelCount == _channelCount)
                 {
                     for (auto c { 0 }; c < sourceChannelCount; ++c)
-                        ppOutput[c][posInBuffer] += audioSource->getRenderSampleCacheForChannel (c)[posInSource] * gainLinear;
+                        ppOutput[c][posInBuffer] += audioSource->getRenderSampleCacheForChannel (c)[posInSource];
                 }
                 else
                 {
@@ -110,10 +146,11 @@ void ARATestPlaybackRenderer::renderPlaybackRegions (float* const* ppOutput, ARA
                         monoSum += audioSource->getRenderSampleCacheForChannel (c)[posInSource];
                     if (sourceChannelCount > 1)
                         monoSum /= static_cast<float> (sourceChannelCount);
-                    monoSum *= gainLinear;
                     for (auto c { 0 }; c < _channelCount; ++c)
                         ppOutput[c][posInBuffer] = monoSum;
                 }
+
+            nextSample:;
             }
         }
 

@@ -280,9 +280,19 @@ public:
         return _hostAudioReader->readAudioSamples (samplePosition, samplesPerChannel, buffers);
     }
 
-    bool shouldCancel () const noexcept
+    bool shouldCancel () const noexcept override
     {
         return _shouldCancel.load ();
+    }
+
+    float getSilenceThresholdDb () const noexcept override
+    {
+        return _audioSource->getSilenceThresholdDb ();
+    }
+
+    float getSilenceGapMs () const noexcept override
+    {
+        return _audioSource->getSilenceGapMs ();
     }
 
 private:

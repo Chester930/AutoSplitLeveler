@@ -37,4 +37,6 @@
 
 // Always start analysis immediately when audio source is created,
 // so note content is available before the user initiates a bounce.
-#define ARA_ALWAYS_PERFORM_ANALYSIS 1
+#if !defined (ARA_ALWAYS_PERFORM_ANALYSIS)
+    #define ARA_ALWAYS_PERFORM_ANALYSIS 1
+#endif

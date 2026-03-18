@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vstgui-ui-description version="1">
+	<fonts>
+	</fonts>
+	<colors>
+		<color name="Background" rgba="#1a1a1aff"/>
+		<color name="Text" rgba="#ffffffff"/>
+		<color name="Highlight" rgba="#007affff"/>
+	</colors>
+	<variables>
+	</variables>
+	<templates>
+		<template name="view" class="CViewContainer" origin="0, 0" size="400, 300" background-color="Background" mouse-enabled="true">
+			<view class="CTextLabel" origin="20, 20" size="360, 30" title="AutoSplitLeveler" font-color="Text" back-color="Background" font="~ SystemFont" frame-color="Highlight" />
+			
+			<!-- Segmentation Section -->
+			<view class="CTextLabel" origin="20, 60" size="100, 20" title="SEGMENTATION" font-color="Highlight" />
+			<view class="CKnob" origin="30, 90" size="60, 60" control-tag="Silence Threshold" />
+			<view class="CTextLabel" origin="20, 150" size="80, 20" title="Thresh (dB)" />
+			
+			<view class="CKnob" origin="130, 90" size="60, 60" control-tag="Min Silence Duration" />
+			<view class="CTextLabel" origin="120, 150" size="80, 20" title="Gap (ms)" />
+			
+			<view class="CTextButton" origin="230, 100" size="100, 40" title="AUTO-SPLIT" control-tag="Trigger Split" />
+			
+			<!-- Leveling Section -->
+			<view class="CTextLabel" origin="20, 190" size="100, 20" title="LEVELING" font-color="Highlight" />
+			<view class="CKnob" origin="30, 220" size="60, 60" control-tag="Target Peak" />
+			<view class="CTextLabel" origin="20, 280" size="80, 20" title="Target (dB)" />
+			
+			<view class="CTextButton" origin="230, 230" size="100, 40" title="APPLY" control-tag="Trigger Leveling" />
+		</template>
+	</templates>
+	<control-tags>
+		<control-tag name="Silence Threshold" tag="100" />
+		<control-tag name="Min Silence Duration" tag="101" />
+		<control-tag name="Target Peak" tag="102" />
+		<control-tag name="Trigger Split" tag="103" />
+		<control-tag name="Trigger Leveling" tag="104" />
+	</control-tags>
+</vstgui-ui-description>
